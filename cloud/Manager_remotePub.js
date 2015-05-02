@@ -23,13 +23,23 @@ exports.appVerLatest = function(request,response){
 exports.verLatest = function(request, response){
 
     var platform = request.params.platform;
+    var appid = request.params.appid;
 
-    mou_remotePub.versionLatest(platform).then(function(res){
+    if (appid == undefined || platform == undefined) {
+        var JsonRes = {
+            'errorCode':1,
+            'errorMessage':'参数不完整',
+        }
+
+        response.success(JsonRes);
+    };
+
+    mou_remotePub.versionLatest(platform,appid).then(function(res){
 
         if (res.get('version') == 0) {
             var JsonRes = {
                 'errorCode':1,
-                'errorMessage':'没有查询到对应记录',
+                'errorMessage':'没有找到网页缓存包',
             }
         }else{
             var JsonRes = {
@@ -64,7 +74,8 @@ exports.verAdd = function(request,response){
             zipSize:request.params.zipSize,
             platform:request.params.platform,
             isForceUpdate:parseInt(request.params.isForceUpdate),
-            changeLog:request.params.changeLog
+            changeLog:request.params.changeLog,
+            appid:request.params.appid
         }
 
         mou_remotePub.versionAdd(params).then(function(){

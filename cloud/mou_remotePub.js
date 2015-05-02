@@ -9,7 +9,7 @@ var versions = AV.Object.extend(config.dbs.G5_versions);
 function versionAdd(params) {
     var promise = new AV.Promise();
 
-    versionLatest(params.platform).then(function(res){
+    versionLatest(params.platform,params.appid).then(function(res){
         return AV.Promise.as(res.get('version'));
     }).then(function(version){
         var versionsNew = new versions();
@@ -36,13 +36,14 @@ function versionAdd(params) {
 /**
  * 获取最新版本
  */
-function versionLatest(platform){
+function versionLatest(platform,appid){
     var promise = new AV.Promise();
 
     var vQ = new AV.Query(versions);
 
     vQ.descending('createdAt');
     vQ.equalTo('platform',platform);
+    vQ.equalTo('appid',appid);
     vQ.limit(1);
 
     vQ.find().then(function(res){
