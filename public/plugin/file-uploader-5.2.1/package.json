@@ -1,0 +1,49 @@
+{
+  "name": "fine-uploader",
+  "title": "Fine Uploader",
+  "version": "5.2.1",
+  "description": "Multiple file upload component with progress-bar, drag-and-drop, support for all modern browsers.",
+  "maintainers": [
+    "Ray Nicholus <ray@fineuploader.com>",
+    "Mark Feltner <mfeltner@widen.com>"
+  ],
+  "keywords": [
+    "amazon",
+    "aws",
+    "azure",
+    "chunk",
+    "chunking",
+    "cross-domain",
+    "cross-site",
+    "drag",
+    "drop",
+    "file",
+    "file-input",
+    "file-uploader",
+    "input",
+    "jquery",
+    "jquery-plugin",
+    "multiple",
+    "preview",
+    "progress",
+    "resume",
+    "s3",
+    "selection",
+    "upload",
+    "widget"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FineUploader/fine-uploader.git"
+  },
+  "author": "Widen Enterprises, Inc.",
+  "licenses": [
+    {
+      "type": "Widen Commerical License",
+      "url": "https://raw.githubusercontent.com/FineUploader/fine-uploader/master/LICENSE"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/FineUploader/fine-uploader/issues"
+  }
+}
